@@ -57,7 +57,7 @@
     },
     {
       "name": "build_runner",
-      "rootUri": "file:///Users/apple/.pub-cache/hosted/pub.dev/build_runner-2.4.15",
+      "rootUri": "file:///Users/apple/.pub-cache/hosted/pub.dev/build_runner-2.4.14",
       "packageUri": "lib/",
       "languageVersion": "3.6"
     },
@@ -195,9 +195,9 @@
     },
     {
       "name": "http",
-      "rootUri": "file:///Users/apple/.pub-cache/hosted/pub.dev/http-1.4.0",
+      "rootUri": "file:///Users/apple/.pub-cache/hosted/pub.dev/http-0.13.6",
       "packageUri": "lib/",
-      "languageVersion": "3.4"
+      "languageVersion": "2.19"
     },
     {
       "name": "http_multi_server",
@@ -327,9 +327,9 @@
     },
     {
       "name": "shelf_web_socket",
-      "rootUri": "file:///Users/apple/.pub-cache/hosted/pub.dev/shelf_web_socket-3.0.0",
+      "rootUri": "file:///Users/apple/.pub-cache/hosted/pub.dev/shelf_web_socket-2.0.1",
       "packageUri": "lib/",
-      "languageVersion": "3.5"
+      "languageVersion": "3.3"
     },
     {
       "name": "sky_engine",
@@ -440,7 +440,7 @@
       "languageVersion": "2.12"
     }
   ],
-  "generated": "2025-05-26T16:33:58.872971Z",
+  "generated": "2025-05-26T16:41:38.792664Z",
   "generator": "pub",
   "generatorVersion": "3.7.2",
   "flutterRoot": "file:///Users/apple/development/flutter",
