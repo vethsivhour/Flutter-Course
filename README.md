@@ -21,7 +21,7 @@ samples, guidance on mobile development, and a full API reference.
 ### 1. Clone the Repository
 Clone the repository using Git:
 ```bash
-git clone https://github.com/vethsivhour/Flutter_Assignment02
+git clone https://github.com/vethsivhour/Flutter-Course
 ```
 
 ### 2. Install Flutter
@@ -30,7 +30,7 @@ Make sure you have Flutter installed. Visit the [Flutter installation guide](htt
 ### 3. Install Dependencies
 Open your terminal, navigate to the project directory, and run:
 ```bash
-flutter pub get
+flutter pub get 
 ```
 
 ### 4. Run the App
