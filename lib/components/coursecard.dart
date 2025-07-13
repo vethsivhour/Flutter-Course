@@ -47,23 +47,29 @@ class CourseCard extends StatelessWidget {
                     color: Color(0xFF595959),
                   ),
                   const SizedBox(width: 4),
-                  const Text(
-                    'កំរិតដំបូង',
-                    style: TextStyle(
-                      fontSize: 12.0,
-                      fontFamily: 'Ubuntu',
-                      color: Color(0xFF595959),
+                  Flexible(
+                    child: Text(
+                      'កំរិតដំបូង',
+                      style: TextStyle(
+                        fontSize: 12.0,
+                        fontFamily: 'Ubuntu',
+                        color: Color(0xFF595959),
+                      ),
+                      overflow: TextOverflow.ellipsis,
                     ),
                   ),
                   const SizedBox(width: 8),
                   Icon(Icons.groups_2, size: 13.0, color: Color(0xFF595959)),
                   const SizedBox(width: 4),
-                  const Text(
-                    '99 នាក់បានរៀន',
-                    style: TextStyle(
-                      fontSize: 12.0,
-                      fontFamily: 'Ubuntu',
-                      color: Color(0xFF595959),
+                  Flexible(
+                    child: Text(
+                      '99 នាក់បានរៀន',
+                      style: TextStyle(
+                        fontSize: 12.0,
+                        fontFamily: 'Ubuntu',
+                        color: Color(0xFF595959),
+                      ),
+                      overflow: TextOverflow.ellipsis,
                     ),
                   ),
                 ],

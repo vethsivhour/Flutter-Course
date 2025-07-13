@@ -1,6 +1,39 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
+const List<String> leftLinks = [
+  'About Us',
+  'Contact Us',
+  'FaQs',
+  'Community Forum',
+  'Term of Service',
+  'Careers',
+  'Leadership',
+  'Blog',
+];
+
+const List<String> rightLinks = [
+  'Social Impact',
+  'Cookies Setting',
+  'Terms',
+  'Accessibility Statement',
+  'Investors',
+  'GO Pro Course',
+  'Affiliate',
+];
+
+Widget _footerLink(String text, double fontSize) {
+  return Text(
+    text,
+    style: TextStyle(
+      fontWeight: FontWeight.bold,
+      fontFamily: 'Ubuntu',
+      fontSize: fontSize,
+      color: Colors.black87,
+    ),
+  );
+}
+
 class Footer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -8,95 +41,41 @@ class Footer extends StatelessWidget {
       children: [
         Align(
           alignment: Alignment.centerLeft,
-          child: Image.asset('assets/images/image.png', width: 152),
+          child: Image.asset('assets/images/image1.png', width: 152),
         ),
         SizedBox(height: 50),
 
         Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          mainAxisAlignment: MainAxisAlignment.start,
           children: [
-            Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  'About Us',
-                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 14),
-                ),
-                SizedBox(height: 10),
-                Text(
-                  'Contact Us',
-                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 14),
-                ),
-                SizedBox(height: 10),
-                Text(
-                  'FaQs',
-                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 14),
-                ),
-                SizedBox(height: 10),
-                Text(
-                  'Community Forum',
-                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 14),
-                ),
-                SizedBox(height: 10),
-                Text(
-                  'Term of Service',
-                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 14),
-                ),
-                SizedBox(height: 10),
-                Text(
-                  'Careers',
-                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 14),
-                ),
-                SizedBox(height: 10),
-                Text(
-                  'Leadership',
-                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 14),
-                ),
-                SizedBox(height: 10),
-                Text(
-                  'Blog',
-                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 14),
-                ),
-              ],
+            // Left column
+            Expanded(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: leftLinks
+                    .map(
+                      (text) => Padding(
+                        padding: const EdgeInsets.only(bottom: 16),
+                        child: _footerLink(text, 14),
+                      ),
+                    )
+                    .toList(),
+              ),
             ),
-            Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  'Social Impact',
-                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 14),
-                ),
-                SizedBox(height: 10),
-                Text(
-                  'Cookies Setting',
-                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 14),
-                ),
-                SizedBox(height: 10),
-                Text(
-                  'Terms',
-                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 14),
-                ),
-                SizedBox(height: 10),
-                Text(
-                  'Accessibility Statement',
-                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 14),
-                ),
-                SizedBox(height: 10),
-                Text(
-                  'Investors',
-                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 14),
-                ),
-                SizedBox(height: 10),
-                Text(
-                  'GO Pro Course',
-                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 14),
-                ),
-                SizedBox(height: 10),
-                Text(
-                  'Affiliate',
-                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 14),
-                ),
-              ],
+            // Right column
+            Expanded(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: rightLinks
+                    .map(
+                      (text) => Padding(
+                        padding: const EdgeInsets.only(bottom: 16),
+                        child: _footerLink(text, 14),
+                      ),
+                    )
+                    .toList(),
+              ),
             ),
           ],
         ),
