@@ -7,6 +7,27 @@ import 'components/navigation.dart';
 import 'components/promotioncard.dart';
 import 'components/teachercard.dart';
 
+const List<String> leftLinks = [
+  'About Us',
+  'Contact Us',
+  'FaQs',
+  'Community Forum',
+  'Term of Service',
+  'Careers',
+  'Leadership',
+  'Blog',
+];
+
+const List<String> rightLinks = [
+  'Social Impact',
+  'Cookies Setting',
+  'Terms',
+  'Accessibility Statement',
+  'Investors',
+  'GO Pro Course',
+  'Affiliate',
+];
+
 class LandingPage extends StatefulWidget {
   @override
   _LandingPageState createState() => _LandingPageState();
@@ -23,6 +44,10 @@ class _LandingPageState extends State<LandingPage> {
 
   @override
   Widget build(BuildContext context) {
+    final int maxRows =
+        leftLinks.length > rightLinks.length
+            ? leftLinks.length
+            : rightLinks.length;
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.white,
@@ -149,18 +174,17 @@ class _LandingPageState extends State<LandingPage> {
             SizedBox(height: 20),
             CategoryChips(),
             SizedBox(height: 16),
-            SizedBox(
-              height: 260 * 2 + 12,
-              child: SingleChildScrollView(
-                scrollDirection: Axis.horizontal,
-                child: Wrap(
-                  direction: Axis.vertical,
-                  spacing: 12,
-                  runSpacing: 12,
-                  children: List.generate(
-                    6,
-                    (index) =>
-                        SizedBox(width: 178, height: 260, child: CourseCard()),
+            SingleChildScrollView(
+              scrollDirection: Axis.horizontal,
+              child: Row(
+                children: List.generate(
+                  6,
+                  (index) => Padding(
+                    padding: const EdgeInsets.all(6.0),
+                    child: SizedBox(
+                      width: 178, // Only width is fixed
+                      child: CourseCard(),
+                    ),
                   ),
                 ),
               ),
@@ -260,8 +284,7 @@ class _LandingPageState extends State<LandingPage> {
                   ),
                 ),
                 SizedBox(width: 8),
-                Container(
-                  width: 280,
+                Expanded(
                   child: Text(
                     'To reach our only One goal, what we can share with you today ',
                     style: TextStyle(
@@ -270,6 +293,7 @@ class _LandingPageState extends State<LandingPage> {
                       fontWeight: FontWeight.w500,
                       fontFamily: 'Ubuntu',
                     ),
+                    softWrap: true,
                   ),
                 ),
               ],
@@ -302,153 +326,34 @@ class _LandingPageState extends State<LandingPage> {
             ),
             SizedBox(height: 50),
 
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      'About Us',
-                      style: TextStyle(
-                        fontWeight: FontWeight.bold,
-                        fontFamily: 'Ubuntu',
-                        fontSize: 14,
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: List.generate(maxRows, (i) {
+                return Padding(
+                  padding: const EdgeInsets.only(
+                    bottom: 10,
+                  ), // smaller space between rows
+                  child: Row(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      // Left cell
+                      Expanded(
+                        child: _footerLink(
+                          i < leftLinks.length ? leftLinks[i] : '',
+                          12,
+                        ),
                       ),
-                    ),
-                    SizedBox(height: 10),
-                    Text(
-                      'Contact Us',
-                      style: TextStyle(
-                        fontWeight: FontWeight.bold,
-                        fontFamily: 'Ubuntu',
-                        fontSize: 14,
+                      // Right cell
+                      Expanded(
+                        child: _footerLink(
+                          i < rightLinks.length ? rightLinks[i] : '',
+                          12,
+                        ),
                       ),
-                    ),
-                    SizedBox(height: 10),
-                    Text(
-                      'FaQs',
-                      style: TextStyle(
-                        fontWeight: FontWeight.bold,
-                        fontFamily: 'Ubuntu',
-                        fontSize: 14,
-                      ),
-                    ),
-                    SizedBox(height: 10),
-                    Text(
-                      'Community Forum',
-                      style: TextStyle(
-                        fontWeight: FontWeight.bold,
-                        fontFamily: 'Ubuntu',
-                        fontSize: 14,
-                      ),
-                    ),
-                    SizedBox(height: 10),
-                    Text(
-                      'Term of Service',
-                      style: TextStyle(
-                        fontWeight: FontWeight.bold,
-                        fontFamily: 'Ubuntu',
-                        fontSize: 14,
-                      ),
-                    ),
-                    SizedBox(height: 10),
-                    Text(
-                      'Careers',
-                      style: TextStyle(
-                        fontWeight: FontWeight.bold,
-                        fontFamily: 'Ubuntu',
-                        fontSize: 14,
-                      ),
-                    ),
-                    SizedBox(height: 10),
-                    Text(
-                      'Leadership',
-                      style: TextStyle(
-                        fontWeight: FontWeight.bold,
-                        fontFamily: 'Ubuntu',
-                        fontSize: 14,
-                      ),
-                    ),
-                    SizedBox(height: 10),
-                    Text(
-                      'Blog',
-                      style: TextStyle(
-                        fontWeight: FontWeight.bold,
-                        fontFamily: 'Ubuntu',
-                        fontSize: 14,
-                      ),
-                    ),
-                  ],
-                ),
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      'Social Impact',
-                      style: TextStyle(
-                        fontWeight: FontWeight.bold,
-                        fontFamily: 'Ubuntu',
-                        fontSize: 14,
-                      ),
-                    ),
-                    SizedBox(height: 10),
-                    Text(
-                      'Cookies Setting',
-                      style: TextStyle(
-                        fontWeight: FontWeight.bold,
-                        fontFamily: 'Ubuntu',
-                        fontSize: 14,
-                      ),
-                    ),
-                    SizedBox(height: 10),
-                    Text(
-                      'Terms',
-                      style: TextStyle(
-                        fontWeight: FontWeight.bold,
-                        fontFamily: 'Ubuntu',
-                        fontSize: 14,
-                      ),
-                    ),
-                    SizedBox(height: 10),
-                    Text(
-                      'Accessibility Statement',
-                      style: TextStyle(
-                        fontWeight: FontWeight.bold,
-                        fontFamily: 'Ubuntu',
-                        fontSize: 14,
-                      ),
-                    ),
-                    SizedBox(height: 10),
-                    Text(
-                      'Investors',
-                      style: TextStyle(
-                        fontWeight: FontWeight.bold,
-                        fontFamily: 'Ubuntu',
-                        fontSize: 14,
-                      ),
-                    ),
-                    SizedBox(height: 10),
-                    Text(
-                      'GO Pro Course',
-                      style: TextStyle(
-                        fontWeight: FontWeight.bold,
-                        fontFamily: 'Ubuntu',
-                        fontSize: 14,
-                      ),
-                    ),
-                    SizedBox(height: 10),
-                    Text(
-                      'Affiliate',
-                      style: TextStyle(
-                        fontWeight: FontWeight.bold,
-                        fontFamily: 'Ubuntu',
-                        fontSize: 14,
-                      ),
-                    ),
-                  ],
-                ),
-              ],
+                    ],
+                  ),
+                );
+              }),
             ),
             SizedBox(height: 30),
             Text(
@@ -486,4 +391,16 @@ class _LandingPageState extends State<LandingPage> {
       ),
     );
   }
+}
+
+Widget _footerLink(String text, double fontSize) {
+  return Text(
+    text,
+    style: TextStyle(
+      fontWeight: FontWeight.bold,
+      fontFamily: 'Ubuntu',
+      fontSize: fontSize,
+      color: Colors.black87,
+    ),
+  );
 }
